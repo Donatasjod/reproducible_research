@@ -149,7 +149,7 @@ the dataset.
     library(ggplot2)
     qplot(total.steps, data = total_steps, geom = "histogram", binwidth=500, main = "Distribution of daily total steps(NA values ignored)")
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](PA1_template_files/unnamed-chunk-3-1.png)
 
 1.  Calculate and report the mean and median of the total number of
     steps taken per day
@@ -187,7 +187,7 @@ What is the average daily activity pattern?</b>
 
     ggplot(average_steps, aes(x=interval, y=average.steps))+geom_line()
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](PA1_template_files/unnamed-chunk-5-1.png)
 
 1.  Which 5-minute interval, on average across all the days in the
     dataset, contains the maximum number of steps?
@@ -278,7 +278,7 @@ introduce bias into some calculations or summaries of the data.
 
     ggplot(total_steps_2, aes(total.steps)) + geom_histogram(binwidth=500) + labs(title="Distribution of daily total steps(NA values included)",x="Total steps taken each day")
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-9-1.png)
+![](PA1_template_files/unnamed-chunk-9-1.png)
 
 <b>
 <li>
@@ -337,4 +337,4 @@ this plot should look like using simulated data.
 
     ggplot(final_data, aes(x=interval, y=steps)) + geom_line() + facet_grid(. ~ weekday_weekend) + labs(title="Distribution of steps(NA values included)",y="Average steps taken each day",x="Time period (5min intervals)")
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-11-1.png)
+![](PA1_template_files/unnamed-chunk-11-1.png)
