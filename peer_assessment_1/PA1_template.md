@@ -27,36 +27,35 @@ include the number of steps taken in 5 minute intervals each day.
 <p>
 The data for this assignment can be downloaded from the course web site:
 </p>
-<ul>
-<li>
+
 Dataset:
 <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip">Activity
 monitoring data</a> [52K]
-</li>
-</ul>
+
+
 <p>
 The variables included in this dataset are:
 </p>
-<ul>
-<li>
+
+
 <p>
 <b>steps</b>: Number of steps taking in a 5-minute interval (missing
 values are coded as <code>NA</code>)
 </p>
-</li>
-<li>
+
+
 <p>
 <b>date</b>: The date on which the measurement was taken in YYYY-MM-DD
 format
 </p>
-</li>
-<li>
+
+
 <p>
 <b>interval</b>: Identifier for the 5-minute interval in which
 measurement was taken
 </p>
-</li>
-</ul>
+
+
 <p>
 The dataset is stored in a comma-separated-value (CSV) file and there
 are a total of 17,568 observations in this dataset.
@@ -65,10 +64,10 @@ are a total of 17,568 observations in this dataset.
 <b>Analysis</b>
 </h3>
 <b>
-<li>
+
 <p>
 Loading and preprocessing the data</b>
-</li>
+
 </p>
 <p>
 Show any code that is needed to
@@ -98,10 +97,10 @@ Show any code that is needed to
     ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 
 <b>
-<li>
+
 <p>
 What is mean total number of steps taken per day?</b>
-</li>
+
 </p>
 For this part of the assignment, you can ignore the missing values in
 the dataset.
@@ -140,7 +139,7 @@ the dataset.
     ## 5 2012-10-06       15420
     ## 6 2012-10-07       11015
 
-1.  If you do not understand the difference between a histogram and a
+2.  If you do not understand the difference between a histogram and a
     barplot, research the difference between them. Make a histogram of
     the total number of steps taken each day
 
@@ -162,12 +161,12 @@ the dataset.
     ##      41    8841   10760   10770   13290   21190
 
 <b>
-<li>
+
 <p>
 What is the average daily activity pattern?</b>
-</li>
+
 </p>
-1.  Make a time series plot (i.e. <code>type = "l"</code>) of the
+2.  Make a time series plot (i.e. <code>type = "l"</code>) of the
     5-minute interval (x-axis) and the average number of steps taken,
     averaged across all days (y-axis)
 
@@ -189,7 +188,7 @@ What is the average daily activity pattern?</b>
 
 ![](PA1_template_files/unnamed-chunk-5-1.png)
 
-1.  Which 5-minute interval, on average across all the days in the
+3.  Which 5-minute interval, on average across all the days in the
     dataset, contains the maximum number of steps?
 
 <!-- -->
@@ -200,10 +199,10 @@ What is the average daily activity pattern?</b>
     ## 835      835      206.1698
 
 <b>
-<li>
+
 <p>
 Imputing missing values</b>
-</li>
+
 </p>
 <p>
 Note that there are a number of days/intervals where there are missing
@@ -222,14 +221,14 @@ introduce bias into some calculations or summaries of the data.
     ## [1] 2304
 
 <p>
-1.  Devise a strategy for filling in all of the missing values in the
+2.  Devise a strategy for filling in all of the missing values in the
     dataset. The strategy does not need to be sophisticated. For
     example, you could use the mean/median for that day, or the mean for
     that 5-minute interval, etc.
     </p>
 
 <p>
-1.  Create a new dataset that is equal to the original dataset but with
+3.  Create a new dataset that is equal to the original dataset but with
     the missing data filled in.
     </p>
 
@@ -250,7 +249,7 @@ introduce bias into some calculations or summaries of the data.
     ## 6 2.0943396 2012-10-01       25
 
 <p>
-1.  Make a histogram of the total number of steps taken each day and
+4.  Make a histogram of the total number of steps taken each day and
     Calculate and report the <b>mean</b> and <b>median</b> total number
     of steps taken per day. Do these values differ from the estimates
     from the first part of the assignment? What is the impact of
@@ -281,24 +280,23 @@ introduce bias into some calculations or summaries of the data.
 ![](PA1_template_files/unnamed-chunk-9-1.png)
 
 <b>
-<li>
+
 <p>
 Are there differences in activity patterns between weekdays and
 weekends?</b>
-</li>
+
 </p>
 <p>
 For this part the <code>weekdays()</code> function may be of some help
 here. Use the dataset with the filled-in missing values for this part.
 </p>
-<ol>
-<li>
+
 <p>
 Create a new factor variable in the dataset with two levels - "weekday"
 and "weekend" indicating whether a given date is a weekday or weekend
 day.
 </p>
-</li>
+<!-- -->
     new<-mutate(filled_activity,date=as.Date(date))
     which_day <- function(d) {
         weekend <- weekdays(d)
@@ -316,7 +314,6 @@ day.
     ## 5 0.0754717 2012-10-01       20         weekday
     ## 6 2.0943396 2012-10-01       25         weekday
 
-<li>
 <p>
 Make a panel plot containing a time series plot (i.e. <code>type =
 "l"</code>) of the 5-minute interval (x-axis) and the average number of
@@ -324,6 +321,8 @@ steps taken, averaged across all weekday days or weekend days (y-axis).
 See the README file in the GitHub repository to see an example of what
 this plot should look like using simulated data.
 </p>
+
+<!-- -->
     final_data <- aggregate(steps ~ weekday_weekend+interval, data=new, FUN=mean)
     head(final_data)
 
